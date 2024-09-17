@@ -1,19 +1,18 @@
-class Book {
+public class Book {
     private String bookID;
     private String title;
     private String author;
     private String genre;
-    private boolean available;
+    private boolean availability;
 
-    public Book(String bookID, String title, String author, String genre, boolean available) {
+    public Book(String bookID, String title, String author, String genre, boolean availability) {
         this.bookID = bookID;
         this.title = title;
         this.author = author;
         this.genre = genre;
-        this.available = available;
+        this.availability = availability;
     }
 
-    // Getters and Setters
     public String getBookID() {
         return bookID;
     }
@@ -30,15 +29,23 @@ class Book {
         return author;
     }
 
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
     public String getGenre() {
         return genre;
     }
 
-    public boolean isAvailable() {
-        return available;
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
-    public void setAvailable(boolean available) {
-        this.available = available;
+    public boolean isAvailable() {
+        return availability;
+    }
+
+    public void setAvailable(boolean availability) {
+        this.availability = availability;
     }
 }
