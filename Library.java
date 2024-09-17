@@ -4,12 +4,10 @@ import java.util.Map;
 import java.util.UUID;
 
 class Library {
-    private List<User> users;
     private List<Book> books;
     private List<Transaction> transactions;
 
     public Library() {
-        this.users = new ArrayList<>();
         this.books = new ArrayList<>();
         this.transactions = new ArrayList<>();
 
@@ -19,22 +17,13 @@ class Library {
         books.add(new Book(UUID.randomUUID().toString(), "Moby Dick", "Herman Melville", "Adventure", true));
     }
 
-    // User Management
-    public void addUser(User user) {
-        users.add(user);
-    }
-
-    public void deleteUser(String userID) {
-        users.removeIf(user -> user.getUserId().equals(userID));
-    }
-
     // Book Management
-    public void addBook(Book book) {
-        books.add(book);
+    public void addBook(String title, String author, String genre, boolean availability) {
+        books.add(new Book(UUID.randomUUID().toString(), title, author, genre, availability));
     }
 
-    public void deleteBook(String bookId) {
-        books.removeIf(book -> book.getBookID().equals(bookId));
+    public void deleteBook(String title) {
+        books.removeIf(book -> book.getTitle().equalsIgnoreCase(title));
     }
 
     public void updateBook(String bookId, Map<String, String> newDetails) {
@@ -43,12 +32,21 @@ class Library {
                 if (newDetails.containsKey("title")) {
                     book.setTitle(newDetails.get("title"));
                 }
-
+                if (newDetails.containsKey("author")) {
+                    book.setAuthor(newDetails.get("author"));
+                }
+                if (newDetails.containsKey("genre")) {
+                    book.setGenre(newDetails.get("genre"));
+                }
+                if (newDetails.containsKey("availability")) {
+                    book.setAvailable(Boolean.parseBoolean(newDetails.get("availability")));
+                }
+                return;
             }
         }
     }
 
-    // Transaction Management...
+    // Transaction Management
     public boolean borrowBook(String userId, String bookId) {
         Book book = getBookByID(bookId);
         if (book != null && book.isAvailable()) {
@@ -58,8 +56,6 @@ class Library {
         }
         return false;
     }
-
-
 
     public boolean returnBook(String userId, String bookId) {
         Book book = getBookByID(bookId);
@@ -80,7 +76,7 @@ class Library {
         return false;
     }
 
-    // Search and Filter Books...
+    // Search and Filter Books
     public List<Book> searchBooks(String criteria, String value) {
         List<Book> results = new ArrayList<>();
         for (Book book : books) {
@@ -101,7 +97,7 @@ class Library {
         return results;
     }
 
-    // Helper method...
+    // Helper method
     private Book getBookByID(String bookId) {
         for (Book book : books) {
             if (book.getBookID().equals(bookId)) {
@@ -111,12 +107,17 @@ class Library {
         return null;
     }
 
-    // Generate Report...
+    // Generate Report
     public void generateReport() {
         System.out.println("Generating Report...");
         for (Transaction transaction : transactions) {
             System.out.println("Transaction: " + transaction.getTransactionType() +
                     " | Date: " + transaction.getDate());
         }
+    }
+
+    // Getter for books
+    public List<Book> getBooks() {
+        return books;
     }
 }
