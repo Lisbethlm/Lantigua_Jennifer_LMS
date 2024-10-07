@@ -1,3 +1,10 @@
+/**
+ * Jennifer Lantigua
+ * Course: CEN 3024C
+ * October 4, 2024
+ * Class Name: Book
+ * This class represents a book object with its properties and methods to manage book details.
+ */
 public class Book {
     private String bookID;
     private String title;
