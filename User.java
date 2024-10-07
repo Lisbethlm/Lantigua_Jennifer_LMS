@@ -1,3 +1,12 @@
+/**
+ * Jennifer Lantigua
+ * Course: CEN 3024C
+ * Date: October 4, 2024
+ * Class Name: User
+ * This class represents a user in the LMS. It includes user information like user ID, name, role, and password.
+ * This class also provides methods for user authentication and authorization based on their roles.
+ */
+
 class User {
     private String userId;
     private String name;
