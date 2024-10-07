@@ -1,5 +1,12 @@
 import java.time.LocalDateTime;
 
+/**
+ * Jennifer Lantigua
+ * Course: CEN 3024C
+ * Date: October 4, 2024
+ * Class Name: Transaction
+ * This class represents a transaction of a book, including borrowing and returning activities.
+ */
 class Transaction {
     private String transactionID;
     private String userID;
