@@ -1,5 +1,3 @@
-package com.example;
-import java.awt.print.Book;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -7,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-
 
 /**
  * Your Name: [Your Name]
@@ -49,6 +46,7 @@ class Library {
             System.out.println("Error reading the file: " + e.getMessage());
         }
     }
+
     public void addBook(String title, String author, String genre, boolean availability) {
         books.add(new Book(UUID.randomUUID().toString(), title, author, genre, availability));
     }
@@ -123,3 +121,4 @@ class Library {
         return null;
     }
 }
+
