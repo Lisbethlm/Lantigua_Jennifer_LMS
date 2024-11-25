@@ -1,4 +1,11 @@
-package com.example;
+/**
+ * Jennifer Lantigua
+ * Course: CEN 3024C
+ * Date: November 20, 2024
+ * Class Name: LibraryGUI
+ * This class contains a functional GUI that allows the user to navigate through books (provided by the user in a text file).
+ *You can also delete books, check-in and out, and print the catalog.
+ */
 
 import javax.swing.*;
 import java.awt.*;
