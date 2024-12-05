@@ -1,17 +1,32 @@
+package com.example;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 /**
- * Jennifer Lantigua
- * Course: CEN 3024C
+ * Main class for the Library Management System (LMS).
+ * <p>
+ * This class provides a command-line interface for managing books, users, and transactions within the LMS.
+ * It enables functionalities such as adding, removing, updating, borrowing, and returning books.
+ * </p>
+ * <p>
+ * Author: Jennifer Lantigua <br>
+ * Course: CEN 3024C <br>
  * Date: October 4, 2024
- * Class Name: Main
- * This class contains the main method for the Library Management System (LMS), allowing users to manage books and transactions.
+ * </p>
  */
 public class Main {
     private static final Library library = new Library();
 
+    /**
+     * Main method of the Library Management System.
+     * <p>
+     * Provides a menu-driven interface for users to interact with the system.
+     * </p>
+     *
+     * @param args Command-line arguments (not used in this application).
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
@@ -58,6 +73,7 @@ public class Main {
                 case 6:
                     printLibraryContents();
                     break;
+
                 case 7:
                     System.out.print("Enter your user ID: ");
                     String userId = scanner.nextLine();
@@ -93,6 +109,11 @@ public class Main {
         scanner.close();
     }
 
+    /**
+     * Prompts the user to input details for a new book and adds it to the library.
+     *
+     * @param scanner Scanner object for reading user input.
+     */
     private static void addSingleBook(Scanner scanner) {
         System.out.print("Enter the title: ");
         String title = scanner.nextLine();
@@ -108,6 +129,11 @@ public class Main {
         System.out.println("Book added successfully.");
     }
 
+    /**
+     * Prompts the user to update the details of an existing book.
+     *
+     * @param scanner Scanner object for reading user input.
+     */
     private static void updateBook(Scanner scanner) {
         System.out.print("Enter the ID of the book to update: ");
         String bookId = scanner.nextLine();
@@ -133,6 +159,9 @@ public class Main {
         System.out.println("Book updated successfully.");
     }
 
+    /**
+     * Prints the contents of the library to the console.
+     */
     private static void printLibraryContents() {
         System.out.println("Current Library Contents:");
         for (Book book : library.getBooks()) {
