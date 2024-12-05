@@ -1,12 +1,3 @@
-/**
- * Jennifer Lantigua
- * Course: CEN 3024C
- * Date: November 24, 2024
- * Class Name: LibraryGUI
- * This class contains a functional GUI that allows the user to navigate through books (provided by a connected database in the system).
- *You can also delete books, check-in and out, and print the catalog.
- */
-
 package com.example;
 
 import javax.swing.*;
